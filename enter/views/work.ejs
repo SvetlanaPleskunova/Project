@@ -1,0 +1,801 @@
+<html>
+<head>
+<title><%= title %></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta charset="utf-8" />
+<link href="/css/main.css" type="text/css" rel="stylesheet">
+
+
+</head>
+<body>
+       <div class="header" id="headerr">
+
+        <h1><a href="/home"></a>  Make Cake </h1>
+
+        <div class=menu1>
+          <ul>
+            <a href="/worker?id=order&user_id=<%=user_id%>" class="ord"></a>
+              <a href="/worker?id=settings&user_id=<%=user_id%>" class="set"></a>
+                <a href="/enterClient" class="exit"></a>
+      </ul>
+
+
+
+    </div>
+
+    <div class=kart>
+
+    </div>
+    <% if (title == "Заказы") {%>
+        <div class=assortTort>
+          <div class="ordercss"
+          ЗАКАЗЫ:
+        <% for(var i=0;i<orderInfo.length;i++) { %>
+        <p> Заказчик: <%=orderInfo[i].name%> <%=orderInfo[i].firstname%>
+          <p> Номер телефона: <%=orderInfo[i].numberphone%>
+        <p>  Дата: <%=orderInfo[i].data%>
+          <p>  Наименование <%=orderInfo[i].namesweet%>
+        <p>  Содержимое заказа:  <%=orderInfo[i].ordertxt%>
+        <p>  Сумма заказа: <%=orderInfo[i].sum%>
+          <p>  Адрес доставки: <%=orderInfo[i].adress%>
+        <p>  Выполнено: <% if(orderInfo[i].done){%>V<%} else {%>
+              <form class="" action="/doneOrder" method="post">
+                <input type="text" name="user" value="<%=orderInfo[i].id%>" style="display:none">
+                <input type="submit" name="" value="Выполнено">
+              </form>
+          <%}%>
+
+        <hr>
+          <%}%>
+        </div>
+
+
+
+
+
+        </div>
+        
+        <%}
+
+         else if (title == "Настройки") {
+           if (checkflag){%>
+             <script> alert("Комбинации существуют") </script>
+        <%}%>
+
+            <div class=assortTort>
+
+                <div class="wrap">
+                    <div class="open"> Торты</div>
+                    <div class="cont hide">
+                        <form method="post" action="/setting" >
+
+
+                            <div class="bisq">
+                            <div id="tes1">Коржи</div><br>
+                           <%var i;
+                           if (!flagSum){
+                          i  = -1; } else  i=0;
+
+                           korz.forEach(function(ar){
+                                      i+=1;
+                                       console.log("iKorz", i, sumKorz[i]);
+                             %>
+
+                            <label>
+                              <div id="korz" value=<%i%>></div>
+                              <input type="checkbox" id="qwe<%=i%>" name="korz"  value="<%=ar.name%>" onclick="fun()" class="qwe"> <%=ar.name%>
+                                    <div id="money<%=i%>" style="display:none;" >
+                                  <input type="text" id="sum<%=i%>" name="sum" placeholder="Стоимость" />
+                                  <input type="text" id="ssum<%=i%>" value="<%=sumKorz[i]%>" style="display:none"/>
+                                </div>
+                            </label>
+
+
+                            <%}) %>
+                            <script>
+                            function fun() {
+                              for (var i = 0; i < korz.length; i++) {
+                                if (document.getElementById('qwe'+i).checked==true) {
+                                  document.getElementById('money'+i).style.display = 'block';
+                                            if (document.getElementById('ssum'+i).value=="false") {
+                                            } else   { document.getElementById('sum'+i).value=document.getElementById('ssum'+i).value;
+                                                        document.getElementById('sum'+i).setAttribute("readonly", true);
+                                          }
+
+
+                                } else {document.getElementById('money'+i).style.display = 'none';
+                              }
+                            }
+
+}
+                            </script>
+
+
+                        </div>
+                        <div class="nach">
+                            <div id="tes1">Начинка</div><br>
+                              <%var i;
+                             if (flagSumFill){
+                            i  = -1; } else  i=0;
+                            nach.forEach(function(ar){
+                                       i+=1;
+
+                              %>
+
+                                <label>
+
+                                    <div id="nach" value=<%i%>></div>
+                                    <input type="checkbox" id="qwefill<%=i%>" name="nach"  value="<%=ar.namefill%>" onclick="funfill()"class="qwe" > <%=ar.namefill%>
+
+                                          <div id="moneyNach<%=i%>" style="display:none;" >
+
+                                              <input type="text" id="sumfill<%=i%>" name="sumfill" placeholder="Стоимость"  />
+                                                  <input type="text" id="ssumfill<%=i%>" value="<%=sumFill[i]%>" style="display:none"/>
+                                          </div>
+
+                                </label>
+
+
+                                <%}) %>
+                                <script>
+                                function funfill() {
+                                  for (var i = 0; i <=nach.length; i++) {
+                                    if (document.getElementById('qwefill'+i).checked==true) {
+                                      document.getElementById('moneyNach'+i).style.display = 'block';
+                                       if (document.getElementById('ssumfill'+i).value=="false") {
+                                      } else   { document.getElementById('sumfill'+i).value=document.getElementById('ssumfill'+i).value;
+                                                  document.getElementById('sumfill'+i).setAttribute("readonly", true);
+                                    }
+
+                                } else {document.getElementById('moneyNach'+i).style.display = 'none';}
+                              }
+                            }
+
+                                </script>
+                        </div>
+                        <div class="krem">
+                            <div id="tes1">Крем</div><br>
+                            <% var i;
+                           if (!flagSumKrem){
+                          i  = -1; } else  i=0;
+                            krem.forEach(function(ar){
+                                       i+=1;
+                                        console.log("iKrem", i, sumKrem[i]);
+                              %>
+
+                                <label>
+                                    <div id="krem" value=<%i%>></div>
+                                    <input type="checkbox" id="qwekrem<%=i%>" name="krem"  value="<%=ar.namekrem%>" onclick="funkrem()"class="qwe"> <%=ar.namekrem%>
+                                    <div id="moneyKrem<%=i%>" style="display:none;" >
+
+                                        <input type="text" id="sumkrem<%=i%>" name="sumkrem" placeholder="Стоимость"  />
+                                        <input type="text" id="ssumkrem<%=i%>" value="<%=sumKrem[i]%>" style="display:none"/>
+                                    </div>
+                                </label>
+
+
+                                <%}) %>
+                                <script>
+                                function funkrem() {
+                                  for (var i = 0; i <=krem.length; i++) {
+                                    if (document.getElementById('qwekrem'+i).checked==true) {
+                                      document.getElementById('moneyKrem'+i).style.display = 'block';
+                                      if (document.getElementById('ssumkrem'+i).value=="false") {
+                                     } else   { document.getElementById('sumkrem'+i).value=document.getElementById('ssumkrem'+i).value;
+                                                 document.getElementById('sumkrem'+i).setAttribute("readonly", true);
+                                     }
+
+                                    }else {document.getElementById('moneyKrem'+i).style.display = 'none';}
+                                  }
+
+                                }
+
+                                </script>
+
+                        </div>
+
+
+                        <div class="poisk">
+                            <input type="submit" value="Сохранить">
+                        </div>
+                            </form>
+                   </div>
+                 </div>
+
+                 <div class="wrap">
+                    <div class="open"> Капкейки</div>
+                    <div class="cont hide">
+                        <form method="post" action="/settingCup" novalidate>
+
+
+                            <div class="bisq">
+                            <div id="tes1">Коржи</div><br>
+                            <%var i;
+                            if (!flagSumCup){
+                           i  = -1; } else  i=0;
+
+                            korzCup.forEach(function(ar){
+                                       i+=1;
+                                        console.log("iKorzCup", i, sumKorzCup[i]);
+                              %>
+
+                             <label>
+                               <div id="korzCup" value=<%i%>></div>
+                               <input type="checkbox" id="qweCup<%=i%>" name="korz"  value="<%=ar.name%>" onclick="funCup()" class="qwe"> <%=ar.name%>
+                                     <div id="moneyCup<%=i%>" style="display:none;" >
+                                   <input type="text" id="sumCup<%=i%>" name="sum" placeholder="Стоимость" />
+                                   <input type="text" id="ssumCup<%=i%>" value="<%=sumKorzCup[i]%>" style="display:none"/>
+                                 </div>
+                             </label>
+
+
+                             <%}) %>
+                             <script>
+                             function funCup() {
+                               for (var i = 0; i < korzCup.length; i++) {
+                                 if (document.getElementById('qweCup'+i).checked==true) {
+                                   document.getElementById('moneyCup'+i).style.display = 'block';
+                                             if (document.getElementById('ssumCup'+i).value=="false") {
+                                             } else   { document.getElementById('sumCup'+i).value=document.getElementById('ssumCup'+i).value;
+                                                         document.getElementById('sumCup'+i).setAttribute("readonly", true);
+                                           }
+
+
+                                 } else {document.getElementById('moneyCup'+i).style.display = 'none';
+                               }
+                             }
+
+  }
+                             </script>
+
+                        </div>
+                        <div class="nachCup">
+                            <div id="tes1">Начинка</div><br>
+                            <%var i;
+                           if (flagSumFillCup){
+                          i  = -1; } else  i=0;
+                          nachCup.forEach(function(ar){
+                                     i+=1;
+
+                            %>
+
+                              <label>
+
+                                  <div id="nachCup" value=<%i%>></div>
+                                  <input type="checkbox" id="qwefillCup<%=i%>" name="nach"  value="<%=ar.namefill%>" onclick="funfillCup()"class="qwe" > <%=ar.namefill%>
+
+                                        <div id="moneyNachCup<%=i%>" style="display:none;" >
+
+                                            <input type="text" id="sumfillCup<%=i%>" name="sumfill" placeholder="Стоимость"  />
+                                                <input type="text" id="ssumfillCup<%=i%>" value="<%=sumFillCup[i]%>" style="display:none"/>
+                                        </div>
+
+                              </label>
+
+
+                              <%}) %>
+                              <script>
+                              function funfillCup() {
+                                for (var i = 0; i <=nachCup.length; i++) {
+                                  if (document.getElementById('qwefillCup'+i).checked==true) {
+                                    document.getElementById('moneyNachCup'+i).style.display = 'block';
+                                     if (document.getElementById('ssumfillCup'+i).value=="false") {
+                                    } else   { document.getElementById('sumfillCup'+i).value=document.getElementById('ssumfillCup'+i).value;
+                                                document.getElementById('sumfillCup'+i).setAttribute("readonly", true);
+                                  }
+
+                              } else {document.getElementById('moneyNachCup'+i).style.display = 'none';}
+                            }
+                          }
+
+                              </script>
+                        </div>
+                        <div class="kremCup">
+                            <div id="tes1">Крем</div><br>
+                            <% var i;
+                           if (!flagSumKremCup){
+                          i  = -1; } else  i=0;
+                            kremCup.forEach(function(ar){
+                                       i+=1;
+                                        console.log("iKremCup", i, sumKremCup[i]);
+                              %>
+
+                                <label>
+                                    <div id="kremCup" value=<%i%>></div>
+                                    <input type="checkbox" id="qwekremCup<%=i%>" name="krem"  value="<%=ar.namekrem%>" onclick="funkremCup()" class="qwe"> <%=ar.namekrem%>
+                                    <div id="moneyKremCup<%=i%>" style="display:none;" >
+
+                                        <input type="text" id="sumkremCup<%=i%>" name="sumkrem" placeholder="Стоимость"  />
+                                        <input type="text" id="ssumkremCup<%=i%>" value="<%=sumKremCup[i]%>" style="display:none"/>
+                                    </div>
+                                </label>
+
+
+                                <%}) %>
+                                <script>
+                                function funkremCup() {
+                                  for (var i = 0; i <=kremCup.length; i++) {
+                                    if (document.getElementById('qwekremCup'+i).checked==true) {
+                                      document.getElementById('moneyKremCup'+i).style.display = 'block';
+                                      if (document.getElementById('ssumkremCup'+i).value=="false") {
+                                     } else   { document.getElementById('sumkremCup'+i).value=document.getElementById('ssumkremCup'+i).value;
+                                                 document.getElementById('sumkremCup'+i).setAttribute("readonly", true);
+                                     }
+
+                                   }else {document.getElementById('moneyKremCup'+i).style.display = 'none';}
+                                  }
+
+                                }
+
+                                </script>
+
+                        </div>
+
+
+                        <div class="poisk">
+                            <input type="submit" value="Сохранить">
+                        </div>
+                            </form>
+                   </div>
+                 </div>
+
+                 <div class="wrap">
+                    <div class="open"> Шоколадные изделия</div>
+                    <div class="cont hide">
+                        <form method="post" action="/settingChock" novalidate>
+
+
+                            <div class="bisq">
+                              <div id="tes1">Разновидность</div><br>
+                              <%var i;
+                              if (!flagSumChock){
+                             i  = -1; } else  i=0;
+
+                              korzChock.forEach(function(ar){
+                                         i+=1;
+                                          console.log("iKorzChock", i, sumKorzChock);
+                                %>
+
+                               <label>
+                                 <div id="korzChock" value=<%i%>></div>
+                                 <input type="checkbox" id="qweChock<%=i%>" name="korz"  value="<%=ar.namekind%>" onclick="funChock()" class="qwe"> <%=ar.namekind%>
+                                       <div id="moneyChock<%=i%>" style="display:none;" >
+                                     <input type="text" id="sumChock<%=i%>" name="sum" placeholder="Стоимость" />
+                                     <input type="text" id="ssumChock<%=i%>" value="<%=sumKorzChock[i]%>" style="display:none"/>
+                                   </div>
+                               </label>
+
+
+                               <%}) %>
+                               <script>
+                               function funChock() {
+                                 for (var i = 0; i < korzChock.length; i++) {
+                                   if (document.getElementById('qweChock'+i).checked==true) {
+                                     document.getElementById('moneyChock'+i).style.display = 'block';
+                                               if (document.getElementById('ssumChock'+i).value=="false") {
+                                               } else   { document.getElementById('sumChock'+i).value=document.getElementById('ssumChock'+i).value;
+                                                           document.getElementById('sumChock'+i).setAttribute("readonly", true);
+                                             }
+
+
+                                   } else {document.getElementById('moneyChock'+i).style.display = 'none';
+                                 }
+                               }
+
+   }
+                               </script>
+
+
+                           </div>
+                           <div class="nach">
+                               <div id="tes1">Начинка</div><br>
+                                 <%var i;
+                                if (flagSumFillChock){
+                               i  = -1; } else  i=0;
+                               nachChock.forEach(function(ar){
+                                          i+=1;
+
+                                 %>
+
+                                   <label>
+
+                                       <div id="nachChock" value=<%i%>></div>
+                                       <input type="checkbox" id="qwefillChock<%=i%>" name="nach"  value="<%=ar.namefill%>" onclick="funfillChock()" class="qwe"> <%=ar.namefill%>
+
+                                             <div id="moneyNachChock<%=i%>" style="display:none;" >
+
+                                                 <input type="text" id="sumfillChock<%=i%>" name="sumfill" placeholder="Стоимость"  />
+                                                     <input type="text" id="ssumfillChock<%=i%>" value="<%=sumFillChock[i]%>" style="display:none"/>
+                                             </div>
+
+                                   </label>
+
+
+                                   <%}) %>
+                                   <script>
+                                   function funfillChock() {
+                                     for (var i = 0; i <=nachChock.length; i++) {
+                                       if (document.getElementById('qwefillChock'+i).checked==true) {
+                                         document.getElementById('moneyNachChock'+i).style.display = 'block';
+                                          if (document.getElementById('ssumfillChock'+i).value=="false") {
+                                         } else   { document.getElementById('sumfillChock'+i).value=document.getElementById('ssumfillChock'+i).value;
+                                                     document.getElementById('sumfillChock'+i).setAttribute("readonly", true);
+                                       }
+
+                                   } else {document.getElementById('moneyNachChock'+i).style.display = 'none';}
+                                 }
+                               }
+
+                                   </script>
+                           </div>
+                           <div class="krem">
+                               <div id="tes1">Крем</div><br>
+                               <% var i;
+                              if (!flagSumKremChock){
+                             i  = -1; } else  i=0;
+                               kremChock.forEach(function(ar){
+                                          i+=1;
+                                           console.log("iKremChock", i, sumKremChock[i]);
+                                 %>
+
+                                   <label>
+                                       <div id="kremChock" value=<%i%>></div>
+                                       <input type="checkbox" id="qwekremChock<%=i%>" name="krem"  value="<%=ar.namebasis%>" onclick="funkremChock()" class="qwe"> <%=ar.namebasis%>
+                                       <div id="moneyKremChock<%=i%>" style="display:none;" >
+
+                                           <input type="text" id="sumkremChock<%=i%>" name="sumkrem" placeholder="Стоимость"  />
+                                           <input type="text" id="ssumkremChock<%=i%>" value="<%=sumKremChock[i]%>" style="display:none"/>
+                                       </div>
+                                   </label>
+
+
+                                   <%}) %>
+                                   <script>
+                                   function funkremChock() {
+                                     for (var i = 0; i <=kremChock.length; i++) {
+                                       if (document.getElementById('qwekremChock'+i).checked==true) {
+                                         document.getElementById('moneyKremChock'+i).style.display = 'block';
+                                         if (document.getElementById('ssumkremChock'+i).value=="false") {
+                                        } else   { document.getElementById('sumkremChock'+i).value=document.getElementById('ssumkremChock'+i).value;
+                                                    document.getElementById('sumkremChock'+i).setAttribute("readonly", true);
+                                        }
+
+                                      }else {document.getElementById('moneyKremChock'+i).style.display = 'none';}
+                                     }
+
+                                   }
+
+                                   </script>
+                        </div>
+
+
+
+
+
+
+                        <div class="poisk1">
+                            <input type="submit" value="Сохранить">
+                        </div>
+                            </form>
+                   </div>
+                 </div>
+                 <div class="wrap">
+                    <div class="open"> Зефир</div>
+                    <div class="cont hide">
+                        <form method="post" action="/settingMarsh" novalidate>
+
+
+                            <div class="bisq">
+                            <div id="tes1">Вкус</div><br>
+                            <%var i;
+                            if (!flagSumMarsh){
+                           i  = -1; } else  i=0;
+
+                            marsh.forEach(function(ar){
+                                       i+=1;
+                                        console.log("iMarsh", i, sumMarsh[i]);
+                              %>
+
+                             <label>
+                               <div id="Marsh" value=<%i%>></div>
+                               <input type="checkbox" id="qweMarsh<%=i%>" name="korz"  value="<%=ar.name%>" onclick="funMarsh()" class="qwe"> <%=ar.name%>
+                                     <div id="moneyMarsh<%=i%>" style="display:none;" >
+                                   <input type="text" id="sumMarsh<%=i%>" name="sum" placeholder="Стоимость" />
+                                   <input type="text" id="ssumMarsh<%=i%>" value="<%=sumMarsh[i]%>" style="display:none"/>
+                                 </div>
+                             </label>
+
+
+                             <%}) %>
+                             <script>
+                             function funMarsh() {
+                               for (var i = 0; i < Marsh.length; i++) {
+                                 if (document.getElementById('qweMarsh'+i).checked==true) {
+                                   document.getElementById('moneyMarsh'+i).style.display = 'block';
+                                             if (document.getElementById('ssumMarsh'+i).value=="false") {
+                                             } else   { document.getElementById('sumMarsh'+i).value=document.getElementById('ssumMarsh'+i).value;
+                                                         document.getElementById('sumMarsh'+i).setAttribute("readonly", true);
+                                           }
+
+
+                                 } else {document.getElementById('moneyMarsh'+i).style.display = 'none';
+                               }
+                             }
+
+ }
+                             </script>
+                        </div>
+                        <div class="poisk">
+                            <input type="submit" value="Сохранить">
+                        </div>
+                            </form>
+                   </div>
+                 </div>
+
+                 <div class="wrap">
+                    <div class="open"> Классические десерты</div>
+                    <div class="cont hide">
+                        <form method="post" action="/settingReady" novalidate>
+
+
+                            <div class="bisq">
+                            <div id="tes1"></div><br>
+                            <%var i;
+                            if (!flagSumMarsh){
+                           i  = -1; } else  i=0;
+
+                            ready.forEach(function(ar){
+                                       i+=1;
+                                        console.log("iReady", i, sumReady[i]);
+                              %>
+
+                             <label>
+                               <div id="Ready" value=<%i%>></div>
+                               <input type="checkbox" id="qweReady<%=i%>" name="korz"  value="<%=ar.name%>" onclick="funReady()" class="qwe"> <%=ar.name%>
+                                     <div id="moneyReady<%=i%>" style="display:none;" >
+                                   <input type="text" id="sumReady<%=i%>" name="sum" placeholder="Стоимость" />
+                                   <input type="text" id="ssumReady<%=i%>" value="<%=sumReady[i]%>" style="display:none"/>
+                                 </div>
+                             </label>
+
+
+                             <%}) %>
+                             <script>
+                             function funReady() {
+                               for (var i = 0; i < Ready.length; i++) {
+                                 if (document.getElementById('qweReady'+i).checked==true) {
+                                   document.getElementById('moneyReady'+i).style.display = 'block';
+                                             if (document.getElementById('ssumReady'+i).value=="false") {
+                                             } else   { document.getElementById('sumReady'+i).value=document.getElementById('ssumReady'+i).value;
+                                                         document.getElementById('sumReady'+i).setAttribute("readonly", true);
+                                           }
+
+
+                                 } else {document.getElementById('moneyReady'+i).style.display = 'none';
+                               }
+                             }
+
+ }
+                             </script>
+                        </div>
+                        <div class="poisk">
+                            <input type="submit" value="Сохранить">
+                        </div>
+                            </form>
+                   </div>
+                 </div>
+
+
+
+
+
+
+                 <script src="/js/hide.js">
+
+
+                 </script>
+
+              <div class="wrap">
+                 <div class="open"> Работы</div>
+                  
+                   <form class="" action="/WorksChoose" method="post">
+                     <select class="example1" name="example1">
+                 <% listsweet.forEach(function(ar) { %>
+                       <option value="<%=ar.namesweet%>"><%=ar.namesweet%></option>
+                   <% })%>
+                 </select>
+                     <button class="bt" type="submit">V</button>
+                   </form>
+                   <div class="table"
+                   <% if(names=="Шоколадные изделия") {%>
+
+<table>
+
+<tr>
+Шоколадные изделия
+</tr>
+
+<%
+var i=0;
+workChock.forEach(function(ar){
+ %>
+
+ <form class="" action="/ChangeCostsChock" method="post">
+<!-- надо! -->
+  <input type="text" name="work" value="<%=names%>" style="display:none">
+<tr>
+<td><% if (ar.namebasis!=''){%>  Разновидность: <%=ar.namebasis%>  <input type="text" name="sumbasis" value="<%=ar.sumbasis%>" class="sumtable"> RUB
+  <button class="bt" type="submit" value="<%=ar.kindchock_id%>" name="btnkind">Применить</button>
+
+<button class="bt" type="submit" value="<%=ar.namebasis%>" name="btndel">Delete</button> <%}%>
+
+<% if (ar.namefill!=''){%> Начинка:<%=ar.namefill%><input type="text"  name="sumfill" value="<%=ar.sumfill%>" class="sumtable">  RUB
+<button class="bt" type="submit" value="<%=ar.fillchock_id%>" name="btnfill">Применить</button>
+<button class="bt" type="submit" value="<%=ar.namefill%>" name="btndelfill">Delete</button>
+<%}%>
+<% if (ar.namekind!=''){%>Крем:<%=ar.namekind%>
+   <input type="text" name="summkrem" value="<%=ar.summkrem%>" class="sumtable"> RUB
+   <button class="bt" type="submit" value="<%=ar.basischock_id%>" name="btnkrem">Применить</button>
+   <button class="bt" type="submit" value="<%=ar.namekind%>" name="btndelkrem">Delete</button>
+
+    <%}%>
+
+ <p>
+
+</td>
+</tr>
+</form>
+  <%
+  i++;
+})
+%>
+  </table>
+                     <%} else if(names=="Капкейки") {%>
+                       <table>
+
+                     <tr>
+                     Капкейки
+                     </tr>
+
+                       <%
+                       workCup.forEach(function(ar){
+                       %>
+                         <form class="" action="/ChangeCostsCup" method="post">
+                           <input type="text" name="work" value="<%=names%>" style="display:none">
+                         <tr>
+                         <td><% if (ar.namebasis!=''){%>  Разновидность: <%=ar.namebasis%>  <input type="text" name="sumbasis" value="<%=ar.sumbasis%>" class="sumtable"> RUB
+                           <button class="bt" type="submit" value="<%=ar.kindchock_id%>" name="btnkind">Применить</button>
+                           <button class="bt" type="submit" value="<%=ar.namebasis%>" name="btndel">Delete</button> <%}%>
+
+                         <% if (ar.namefill!=''){%> Начинка:<%=ar.namefill%><input type="text" name="sumfill" value="<%=ar.sumfill%>" class="sumtable"> RUB
+                         <button class="bt" type="submit" value="<%=ar.fillchock_id%>" name="btnfill">Применить</button>
+                         <button class="bt" type="submit" value="<%=ar.namefill%>" name="btndelfill">Delete</button>
+                         <%}%>
+                         <% if (ar.namekind!=''){%>Крем:<%=ar.namekind%>
+                            <input type="text" name="summkrem" value="<%=ar.summkrem%>" class="sumtable"> RUB
+                            <button class="bt" type="submit" value="<%=ar.basischock_id%>" name="btnkrem">Применить</button>
+                            <button class="bt" type="submit" value="<%=ar.namekrem%>" name="btndelkrem">Delete</button>
+                             <%}%>
+
+
+                          <p>
+
+                         </td>
+                         </tr>
+                         </form>
+                         <%
+                       })
+                       %>
+                         </table>
+                       <%}else if(names=="Торты") {%>
+    <table>
+
+<tr>
+  TORT
+</tr>
+
+    <%
+    workKorz.forEach(function(ar){
+     %>
+      <form class="" action="/ChangeCosts" method="post">
+<!-- надо! -->   <input type="text" name="work" value="<%=names%>" style="display:none">
+ <tr>
+ <td><% if (ar.namebasis!=''){%>  Разновидность: <%=ar.namebasis%>  <input type="text" name="sumbasis" value="<%=ar.sumbasis%>" class="sumtable"> RUB
+   <button class="bt" type="submit" value="<%=ar.kindchock_id%>" name="btnkind">Применить</button>
+   <button class="bt" type="submit" value="<%=ar.namebasis%>" name="btndel">Delete</button> <%}%>
+
+ <% if (ar.namefill!=''){%> Начинка:<%=ar.namefill%> <input type="text"  name="sumfill" value="<%=ar.sumfill%>" class="sumtable"> RUB
+ <button class="bt" type="submit" value="<%=ar.fillchock_id%>" name="btnfill">Применить</button>
+ <button class="bt" type="submit" value="<%=ar.namefill%>" name="btndelfill">Delete</button>
+ <%}%>
+ <% if (ar.namekind!=''){%>Крем:<%=ar.namekind%>
+    <input type="text" name="summkrem" value="<%=ar.summkrem%>" class="sumtable"> RUB
+    <button class="bt" type="submit" value="<%=ar.basischock_id%>" name="btnkrem">Применить</button>
+    <button class="bt" type="submit" value="<%=ar.namekind%>" name="btndelkrem">Delete</button>
+     <%}%>
+
+
+  <p>
+
+ </td>
+ </tr>
+ </form>
+      <%
+    })
+    %>
+      </table>
+                         <%}else if(names=="Зефир") {%>
+                           <table>
+
+                       <tr>
+                        Зефир
+                       </tr>
+
+                           <%
+                           workMarsh.forEach(function(ar){%>
+                             <form class="" action="/ChangeCostsMarsh" method="post">
+                       <!-- надо! -->  <input type="text" name="work" value="<%=names%>" style="display:none">
+                        <tr>
+                        <td><% if (ar.namebasis!=''){%>  Разновидность: <%=ar.namebasis%>  <input type="text" name="sumbasis" value="<%=ar.sumbasis%>" class="sumtable"> RUB
+                          <button class="bt" type="submit" value="<%=ar.kindchock_id%>" name="btnkind">Применить</button> <%}%>
+
+                          <button class="bt" type="submit" value="<%=ar.namebasis%>" name="btndel">Delete</button>
+                         </td>
+                       </tr>
+                         </form>
+                             <%
+                           })
+                           %>
+                             </table>
+                           <%}else if(names=="Классические десерты") {%>
+                             <table>
+
+                         <tr>
+                        Классические десерты
+                         </tr>
+
+                             <%
+                             workReady.forEach(function(ar){%>
+                               <form class="" action="/ChangeCostsReady" method="post">
+                         <!-- надо! --> <input type="text" name="work" value="<%=names%>" style="display:none">
+                          <tr>
+                          <td><% if (ar.namebasis!=''){%>  Разновидность: <%=ar.namebasis%>  <input type="text" name="sumbasis" value="<%=ar.sumbasis%>" class="sumtable"> RUB
+                            <button class="bt" type="submit" value="<%=ar.kindchock_id%>" name="btnkind">Применить</button>
+                            <button class="bt" type="submit" value="<%=ar.namebasis%>" name="btndel">Delete</button> <%}%>
+
+                           </td>
+                         </tr>
+                           </form>
+                          </div>
+                        </div>
+            
+                               <%
+                             })
+                             %>
+                               </table>
+                             <%}%>
+
+
+
+
+
+
+
+            <%}
+
+
+
+
+    %>
+    
+            
+</div>
+
+
+
+
+
+
+
+</body>
+<html>

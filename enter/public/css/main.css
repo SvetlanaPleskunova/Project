@@ -1,0 +1,813 @@
+body{
+	padding: 0;
+	margin: 0;
+   
+   
+   }
+   .btn {
+	   width: 30px;
+	   height: 30px;
+	   display: inline-block; /* Строчно-блочный элемент */
+	   background: #8C959D; /* Серый цвет фона */
+	   color: #fff; /* Белый цвет текста */
+	   padding: 1rem 1.5rem; /* Поля вокруг текста */
+	   text-decoration: none; /* Убираем подчёркивание */
+	   border-radius: 3px; /* Скругляем уголки */
+	   margin-left: 85%;
+	   margin-top: -105px;
+	   font-family:'Times New Roman';
+	   font-size: 14pt;
+   
+	  }
+   
+	  .btn1 {
+	   display: inline-block; /* Строчно-блочный элемент */
+	   background: #8C959D; /* Серый цвет фона */
+	   color: #fff; /* Белый цвет текста */
+	   padding: 1rem 1.5rem; /* Поля вокруг текста */
+	   text-decoration: none; /* Убираем подчёркивание */
+	   border-radius: 3px; /* Скругляем уголки */
+	   margin-left: 85%;
+	   margin-top: -105px;
+	   font-family:'Times New Roman';
+	   font-size: 14pt;
+	  }
+	  .bag{
+	   width: 40px;
+	   height: 40px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/bag.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	   margin-left: 85%;
+	   margin-top: -85px;
+	  }
+   
+	  .set{
+	   width: 40px;
+	   height: 40px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/set.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	   margin-left: 1300px;
+	   margin-top: -37px;
+	  }
+   
+	  .ord{
+	   width: 37px;
+	   height: 37px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/ord.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	   margin-left: 1400px;
+	   margin-top: -25px;
+   
+	  }
+	  .exit{
+	   width: 37px;
+	   height: 37px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/exit.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	   margin-left: 1500px;
+	   margin-top: -43px;
+	  }
+	  .exit1{
+	   width: 37px;
+	   height: 37px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/exit.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	   margin-left: 1850px;
+	   margin-top: -80px;
+	  }
+	  .exit2{
+	   width: 37px;
+	   height: 37px;
+	   display: inline-block; /* Строчно-блочный элемент */
+   
+	   background-image: url(/img/exit.png); /* Путь к фоновому рисунку */
+	   background-size: 100%; /* Современные браузеры */
+	   background-repeat: no-repeat; /* Отменяем повторение фона */
+	   background-position: center;
+	  
+	   margin-left: 1850px;
+	   margin-top: -80px;
+	  }
+   .header{
+	   background-color:white;
+	   width: 100%;
+	   height: 70px;
+   
+	   margin: auto;
+   
+		background-position: center;
+   
+   
+   
+   }
+   
+   
+   
+   .setMenu ul {
+	   list-style: none; /*убираем маркеры списка*/
+	   margin: 0; /*убираем отступы*/
+	   padding-left: 10%; /*убираем отступы*/
+	   margin-top:50px; /*делаем отступ сверху*/
+		/*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/
+	   height: 50px; /*задаем высоту*/}
+   .setMenu li {float:left;}
+   .setMenu a {
+	   text-decoration: none; /*убираем подчеркивание текста ссылок*/
+	   /*добавляем фон к пункту меню (заменив этот параметр, вы поменяете цвет всех пунктов меню)*/
+	   /*меняем цвет ссылок*/
+	   margin-top:0px;
+	   text-align: left;
+	   margin-left:30px;
+	   text-decoration: none;
+	   color: #000000;
+	   padding:3px 70px; /*добавляем отступ*/
+	   font-family: arial; /*меняем шрифт*/
+	   line-height:50px; /*ровняем меню по вертикали*/
+	   display: block;
+	   font-family:monotype corsiva;
+	   font-size: 20pt;
+   }
+   
+   
+   
+   
+   
+   .header h1{
+	   font-family:monotype corsiva;
+	   font-size: 40pt;
+	   margin-top: 10px;
+	 margin-left: 3.1%;
+   
+   }
+   
+   
+   #btn>header{
+	   background-color:firebrick;
+	   width: 50px;
+	   height: 30px;
+	   border: 3px solid white;
+   }
+	.kart{
+		width: 100%;
+		height:400px;
+		margin-top:4px;
+   
+   
+		background-image: url(/img/ff.jpg); /* Путь к фоновому рисунку */
+		background-size: 100%; /* Современные браузеры */
+		background-repeat: no-repeat; /* Отменяем повторение фона */
+		background-position: center;
+   
+   
+   
+	}
+	a{
+		text-decoration: none;
+		color: #000000;
+	}
+   
+	.hide {
+	   display: none;
+	 }
+   
+	 .wrap{
+   
+	   margin-left: 100px;
+	 }
+   
+	 .open{
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+   
+	 }
+   
+	 
+	  .table{
+		  margin-left:700px;
+		  font-family:monotype corsiva;
+		  font-size: 23pt;
+		 
+	  }
+	  .example1{
+		margin-left: 30px;
+		font-family:monotype corsiva;
+		font-size: 23pt;
+		margin-top:100px;
+		margin-left: 730px;
+	}
+	
+	.example1 select{
+		padding: 10px;
+		width: 25%;
+		color: #000000;
+		font-size: 20px;
+		
+		border: 1px solid black;
+		box-sizing: border-box;
+	}
+   
+   
+   .text{
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+	   margin-top:-700px;
+	   margin-left:350px;
+   }
+   
+   .about{
+	   width: 800px;
+	   height:max-content;
+   
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+	   margin-top:-50px;
+	   margin-left:-200px;
+   }
+   .abouttext{
+	   width: 800px;
+	   height:max-content;
+	   text-align:right;
+   
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+	   margin-top:-10px;
+	   margin-left:-20px;
+   }
+	.assort{
+	   width: 100%;
+	   height:1000px;
+	   margin-top:5px;
+   
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+	}
+	.qwe{
+		width: 25px;
+		height: 25px;
+	}
+	.assortTort {
+	   width: 100%;
+	   height:max-content+10px;
+	   margin-top:5px;
+   
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+   
+   }
+   .assortTortt {
+	   width: 100%;
+	   height:900px;
+	   margin-top:5px;
+   
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+   
+   }
+   .assortCup{
+	   width: 100%;
+	   height:100%;
+	   margin-top:5px;
+   
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+   
+   }
+   #tes{
+	   font-family:monotype corsiva;
+	   font-size: 40pt;
+	   text-align: center;
+   }
+   #tes1{
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+	   margin-left: 40px;
+	   display: table;
+   border-bottom: 2.5px solid #000000;
+   line-height: 36px;
+   
+   }
+   #tes2{
+	   font-family:monotype corsiva;
+	   font-size: 32pt;
+	   margin-left: 40px;
+	   margin-top: -520px;
+	   display: table;
+   border-bottom: 2.5px solid #000000;
+   line-height: 36px;
+   
+   }
+   
+   #qwe{
+	   width: 25px;
+	   height: 25px;
+   
+   }
+   
+   #sum{
+	   width: 100px;
+	   height: 25px;
+	   margin-top: -35px;
+	   margin-left: 220px;
+   }
+   
+   
+   label{
+   
+	   display: block;
+	   margin-bottom: 0.25em;
+	   font-family:monotype corsiva;
+	   font-size: 25pt;
+   }
+   .bisq{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 335px;
+	   margin-top: 30px;
+   }
+   
+   .bisq1{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 900px;
+	   margin-top: 50px;
+   }
+   .nach{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 900px;
+	   margin-top:-437px
+   }
+   .nachCup{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 900px;
+	   margin-top:-290px
+   }
+   .nachChock{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 1450px;
+	   margin-top:-200px
+   }
+   .krem{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 1450px;
+	   margin-top:-480px
+   }
+   .kremCup{
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 1450px;
+	   margin-top:-380px
+   }
+   .kindChock{
+	   
+	   width: 400px;
+	   height: max-content;
+	   
+	   margin-left: 950px;
+	   margin-top:-200px
+   }
+   
+   .date{
+	   margin-left: 30px;
+	   font-family:monotype corsiva;
+	   font-size: 30pt;
+	   margin-top:100px;
+	   margin-left: 730px;
+   }
+   .date input{
+	   padding: 10px;
+	   width: 25%;
+	   color: #000000;
+	   font-size: 20px;
+	   
+	   border: 1px solid black;
+	   box-sizing: border-box;
+   }
+   .dateCup{
+	   margin-left: 30px;
+	   font-family:monotype corsiva;
+	   font-size: 30pt;
+	   margin-top:200px;
+	   margin-left: 730px;
+   }
+   .dateCup input{
+	   padding: 10px;
+	   width: 25%;
+	   color: #000000;
+	   font-size: 20px;
+	   
+	   border: 1px solid black;
+	   box-sizing: border-box;
+   }
+   
+   
+   .cities{
+	   margin-left: 30px;
+	   font-family:monotype corsiva;
+	   font-size: 30pt;
+	   margin-top:100px;
+	   margin-left: 730px;
+   }
+   
+   .cities select{
+	   padding: 10px;
+	   width: 25%;
+	   color: #000000;
+	   font-size: 20px;
+	   
+	   border: 1px solid black;
+	   box-sizing: border-box;
+   }
+   .poisk{
+	   width: 500px;
+	   height: 300px;
+	   margin-top:150px;
+	   margin-left: 800px;
+	   
+   }
+   .ordercss{
+	font-family:monotype corsiva;
+	font-size: 16pt;
+   }
+   .ordercss1{
+	font-family:monotype corsiva;
+	font-size: 20pt;
+   }
+   .assort a{
+	   
+	   width:130px;
+	   height:50px;
+	   background-color:transparent;
+	   margin-left: 250px;
+	   margin-top: 20px;
+	   font-family:monotype corsiva;
+	   font-size: 30pt;
+	   border:0 none;
+	   outline: none;
+	   
+	 }
+   .poisk input[type="submit"]{
+	   width: 400px;
+	   height: 100px;
+	   margin-top: 20px;
+	   color: #fff;
+	   font-weight: bold;
+	   text-transform: uppercase;
+	   border: none;
+	   background: #0fc3f5;
+	   transition: .3s;
+   }
+   
+   
+   
+   .poisk input[type="submit"]:hover {
+	   background: #4442db;
+   }
+   
+   .poisk1 input[type="submit"]{
+	   width: 400px;
+	   height: 100px;
+	   margin-top: 350px;
+	   margin-left:800px ;
+	   color: #fff;
+	   font-weight: bold;
+	   text-transform: uppercase;
+	   border: none;
+	   background: #0fc3f5;
+	   transition: .3s;
+   }
+   
+   
+   
+   .poisk1 input[type="submit"]:hover {
+	   background: #4442db;
+   }
+   
+   .makeOrder button{
+	   width: 250px;
+	   height: 70px;
+	   margin-top: 20px;
+	   margin-left: 1700px;
+	   color: #fff;
+	   font-weight: bold;
+	   text-transform: uppercase;
+	   border: none;
+	   background: #0fc3f5;
+	   transition: .3s;
+   }
+   
+   
+ 
+   .togetOrder button{
+	   width: 450px;
+	   height: 100px;
+	   margin-top: 70px;
+	   margin-left: 850px;
+	   color: #fff;
+	   font-weight: bold;
+	   text-transform: uppercase;
+	   border: none;
+	   background: #0fc3f5;
+	   transition: .3s;
+   }
+   
+   
+   
+   .togetOrder button:hover {
+	   background: #4442db;
+   }
+	.assort1{
+	   width: 100%;
+	   height: 100%;
+	   margin-top:5px;
+   
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+   }
+   
+   
+	.pict1{
+		width: 500px;
+		height: 650px;
+		margin-left: 1400px;
+		margin-top: 200px;
+		background-image: URL(/img/pic1.jpg);
+		border: 3px solid black;
+		background-size: 100%; /* Современные браузеры */
+		background-repeat: no-repeat; /* Отменяем повторение фона */
+		background-position: center;
+	}
+   
+	.pict2{
+	   width: 400px;
+	   height: 400px;
+	   margin-left: 970px;
+	   margin-top: -657px;
+	   border: 3px solid black;
+	   background-image: URL(/img/pic2.jpg);
+	   background-size: 100%; /* Современные браузеры */
+		background-repeat: no-repeat; /* Отменяем повторение фона */
+		background-position: center;
+   }
+   
+   .pict3{
+	   width: 400px;
+	   height: 225px;
+	   margin-left: 970px;
+	   margin-top: 20px;
+	   border: 3px solid black;
+	   background-image: URL(/img/pic3.jpg);
+	   background-size: 100%; /* Современные браузеры */
+		background-repeat: no-repeat; /* Отменяем повторение фона */
+		background-position: center;
+   }
+   
+   .assort-sweet{
+	   width: 1415px;
+	   height: max-content;
+	   margin-top:5px;
+	   margin-left:14.89% ;
+	   border: 3px solid black;
+	  background: linear-gradient(to top,  #E5F4FF,white);
+   
+   }
+   
+   .foo{
+	   width: 100%;
+		height: 300px;
+		background-image: URL(/img/foo.jpg);
+   
+   
+		background-size: 100%; /* Современные браузеры */
+		background-repeat: no-repeat; /* Отменяем повторение фона */
+		transform: rotate(180deg);
+   
+		background-position:center ;
+   }
+   
+   .form {
+	   position: absolute;
+	   margin-top: 200px;
+	   left: 50%;
+	   transform: translate(-50%,-50%);
+	   background: rgba(105, 101, 101, 0.7);
+   }
+   .form1 {
+	   position: absolute;
+	   margin-top: 340px;
+	   left: 50%;
+	   transform: translate(-50%,-50%);
+	   background: rgba(105, 101, 101, 0.7);
+   }
+   .form1 h1 {
+	   margin: 30px 100px;
+	   padding: 0;
+	   text-align: center;
+	   color: #fff;
+	   font-size: 30px;
+	   text-transform: uppercase;
+   }
+   .form1 a {
+	   display: block;
+	   padding: 0 0 30px;
+	   text-align: center;
+	   color: #000000;
+	   text-decoration: none;
+	   transition: .3s;
+   }
+   
+   
+   .form h1 {
+	   margin: 30px 100px;
+	   padding: 0;
+	   text-align: center;
+	   color: #fff;
+	   font-size: 30px;
+	   text-transform: uppercase;
+   }
+   .select{
+	   margin: 15px 40px;
+	   text-align: center;
+	   color: #000000;
+	   text-decoration: none;
+	   transition: .3s;
+   
+   }
+   .role{
+	   width: 100%;
+	   padding: 17px;
+   
+   }
+   .input-form {
+	   margin: 15px 40px;
+	   text-align: center;
+	   font-size: 20px;
+   
+   
+   
+   }
+   
+   .input-form input {
+	   padding: 10px;
+	   width: 100%;
+	   color: #000000;
+	   font-size: 20px;
+   
+	   border: 1px solid #fff;
+	   box-sizing: border-box;
+   }
+   
+   .input-form input[type="text"]:focus, .input-form input[type="password"]:focus {
+	   border: 1px solid #0fc3f5;
+   }
+   
+   .input-form input[type="submit"] {
+	   margin-top: 20px;
+	   color: #fff;
+	   font-weight: bold;
+	   text-transform: uppercase;
+	   border: none;
+	   background: #0fc3f5;
+	   transition: .3s;
+   }
+   
+   .input-form input[type="submit"]:hover {
+	   background: #4442db;
+   }
+   
+   .form a {
+	   display: block;
+	   padding: 0 0 30px;
+	   text-align: center;
+	   color: #000000;
+	   text-decoration: none;
+	   transition: .3s;
+   }
+   
+   
+   .form a:hover {
+	   color: #0fc3f5;
+   }
+   
+   
+   ul {
+	   list-style: none; /*убираем маркеры списка*/
+	   margin: 0; /*убираем отступы*/
+	   padding-left: 20.5%; /*убираем отступы*/
+	   margin-top:-50px; /*делаем отступ сверху*/
+		/*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/
+	   height: 50px; /*задаем высоту*/
+	 }
+	 .menu a {
+	   text-decoration: none; /*убираем подчеркивание текста ссылок*/
+	   /*добавляем фон к пункту меню (заменив этот параметр, вы поменяете цвет всех пунктов меню)*/
+	   /*меняем цвет ссылок*/
+	   margin-top:-40px;
+	   text-align: left;
+	   margin-left:60px;
+	   text-decoration: none;
+	   color: #000000;
+	   padding:0px 3px; /*добавляем отступ*/
+	   font-family: arial; /*меняем шрифт*/
+	   line-height:50px; /*ровняем меню по вертикали*/
+	   display: block;
+	   font-family:monotype corsiva;
+	   font-size: 20pt;
+   
+   
+   
+	 }
+   
+	 li {
+	   float:left; /*Размещаем список горизонтально для реализации меню*/
+	 }
+   
+   
+   h3{
+	  font-family:Times new Roman;
+	  font-size: 20pt;
+	  text-align:center;
+   }
+   table{
+	 border: 3px solid #E5E5E5;
+   }
+   td{
+	 width: 260px;
+	 height: 100px;
+   }
+   .sumtable{
+	 width: 50px;
+   }
+   .formirovanie {
+	   width: 1000px;
+	   height: max-content;
+	   margin-left: 700px;
+	   margin-top:50px;
+	   font-family:monotype corsiva;
+	   font-size: 23pt;
+   }
+   .formirovanie input {
+	   padding: 10px;
+	   width: 300px;
+	   color: #000000;
+	   font-size: 20px;
+	   font-family:'Times New Roman', Times, serif;
+	   font-size: 20pt;
+	   border: 1px solid #fff;
+	   box-sizing: border-box;
+   }
+   
+   .formirovanie input[type="text"]:focus, .input-form input[type="password"]:focus {
+	   border: 1px solid #0fc3f5;
+   }
+   #nameclient{
+	   width:200px;
+	   height: 30px;
+	   border: 0.5px solid black;
+	   font-family:'Times New Roman', Times, serif;
+	   font-size: 20pt
+   }
+   #vvodadress{
+	   width:500px;
+	   height: 30px;
+	   border: 0.5px solid black;
+	   font-family:'Times New Roman', Times, serif;
+	   font-size: 20pt
+   }
+   #sumorder{
+	   width: 100px;
+	   height: 25px;
+	   font-family:'Times New Roman', Times, serif;
+	   font-size: 20pt
+	   
+   }

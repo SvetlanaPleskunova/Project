@@ -1,0 +1,86 @@
+<html>
+<head>
+<title><%= title %></title>
+<meta charset="utf-8" />
+<link href="/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="header" id="headerr">
+
+    <h1><a href="/home"> Make Cake </a> </h1>
+
+
+
+</div>
+
+<div class=assort1>
+        
+
+  <form method="post" action="/reg" novalidate>
+    <div class="form1">
+        <h1>Регистрация</h1>
+        <div class="input-form <%= errors.firstname ? 'form-field-invalid' : '' %>">
+            <input type="text" id="firstname" name="firstname"  placeholder="Фамилия" value="<%= data.firstname %>" />
+            
+            <% if (errors.firstname) { %>
+              <div class="error"><%= errors.firstname.msg %></div>
+            <% } %>
+          </div>
+    
+          <div class="input-form <%= errors.name ? 'form-field-invalid' : '' %>">
+            <input type="text" id="name" name="name"  placeholder="Имя" value="<%= data.name %>" />
+            
+            <% if (errors.name) { %>
+              <div class="error"><%= errors.name.msg %></div>
+            <% } %>
+          </div>
+    
+          <div class="input-form <%= errors.numberphone ? 'form-field-invalid' : '' %>">
+            <input type="text" id="numberphone" name="numberphone"  placeholder="Номер телефона" value="<%= data.numberphone%>" />
+            
+            <% if (errors.numberphone) { %>
+              <div class="error"><%= errors.numberphone.msg %></div>
+            <% } %>
+          </div>
+        
+          <div class="input-form <%= errors.adres ? 'form-field-invalid' : '' %>">
+            <input type="text" id="adres" name="adres" placeholder="Адрес" value="<%= data.adres %>" />
+            
+            <% if (errors.adres) { %>
+              <div class="error"><%= errors.adres.msg %></div>
+            <% } %>
+          </div>
+        
+        <div class="input-form <%= errors.email ? 'form-field-invalid' : '' %>">
+            <input type="text" id="email" name="email" type="email" placeholder="Логин" value="<%= data.email %>" />
+            
+            <% if (errors.email) { %>
+              <div class="error"><%= errors.email.msg %></div>
+            <% } %>
+          </div>
+    
+        <div class="input-form <%= errors.password ? 'form-field-invalid' : '' %>">
+          
+            <input type="password" id="password" name="password" type="password" placeholder="Пароль" value="<%= data.password %>" />
+          <% if (errors.password) { %>
+            <div class="password"><%= errors.password.msg %></div>
+          <% } %>
+        </div>
+        
+       
+                <div class="input-form ">
+          
+                  <select class="role" name="role">
+                   <option value="Заказчик">Заказчик</option>
+                   <option value="Исполнитель">Исполнитель</option>
+                   </select>
+                
+                </div>
+            
+             <div class="input-form">
+                    <input type="submit" value="Зарегистрироваться">
+            
+    </div>
+    </form>
+</body>
+<html>

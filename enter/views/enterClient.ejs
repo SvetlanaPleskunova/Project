@@ -1,0 +1,58 @@
+<html>
+<head>
+<title><%= title %></title>
+<meta charset="utf-8" />
+<link href="/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <div class="header" id="headerr">
+
+    <h1><a href="/home"></a>  Make Cake </h1>
+
+<div class=menu>
+  <ul>
+    <li><a href="/user?id=torty">Торты</a></li>
+    <li><a href="/user?id=minic">Капкейки</a></li>
+    <li><a href="/user?id=sweet">Шоколадные изделия</a></li>
+    
+    <li><a href="/user?id=marshmallows">Зефир</a></li>
+    <li><a href="/user?id=classic">Классичекие десерты</a></li>
+    </ul>
+
+
+
+</div>
+
+</div>
+<div class=assort1>
+        
+
+<form method="post" action="/contact" novalidate>
+    <div class="form">
+        <h1>Вход</h1>
+    <div class="input-form <%= errors.email ? 'form-field-invalid' : '' %>">
+        <input type="text" id="email" name="email" type="email" placeholder="Логин" value="<%= data.email %>" />
+        
+        <% if (errors.email) { %>
+          <div class="error"><%= errors.email.msg %></div>
+        <% } %>
+      </div>
+
+    <div class="input-form <%= errors.password ? 'form-field-invalid' : '' %>">
+      
+        <input type="password" id="password" name="password" type="password" placeholder="Пароль" value="<%= data.password %>" />
+      <% if (errors.password) { %>
+        <div class="password"><%= errors.password.msg %></div>
+      <% } %>
+    </div>
+    <div class="input-form">
+        <input type="submit" value="Войти">
+    </div>
+    <a href="/Registration" class="regis">Регистрация</a>
+       </div>
+    
+  </form>
+</div>
+
+</body>
+<html>

@@ -1,0 +1,109 @@
+____________________________________________
+                  В ксс изменение, не считая вновь добавленного и того, что для себя делала: 423 строка,408
+В БД назвала таблицу ордерЗ(чтоб потом изменить название таблицы , если надо, т к там есть какая-то табл ордер, но мы обсуждали и пришли к выводу
+что делаем таблицу другой, но на всякий не удаляю старую)
+
+ШОКОЛАДНЫЕ ИЗДЕЛИЯ!
+БАСИС - КРЕМ
+КАЙНД - КОРЖ!!!!!!!!!!!!
+
+
+
+
+
+
+<% search.forEach(function(ar){
+  %>
+Исполнитель:  <%=ar.firstname%>  <%=ar.name%>
+<p>
+<% for (var i=0;i<checkedKorz.length;i++){%>
+<%=checked.korz[i]%> <%=checkedKorz[i]%> RUB
+  <%}%>
+
+    <p>
+      с начинкой:
+      <% for (var i=0;i<checkedNach.length;i++){%>
+<%=checked.nach[i]%> <%=checkedNach[i]%> RUB
+        <%}%>
+
+      <p>
+      с кремом:
+      <% for (var i=0;i<checkedKrem.length;i++){%>
+<%=checked.krem[i]%> <%=checkedKrem[i]%> RUB
+        <%}%>
+
+
+
+
+
+//  Начинка:
+        <% for (var j=0;j<ar.nach.length;j++){%>
+              <%=ar.nach[j]%> <%=ar.sumNach[j]%>
+          <%}%>
+
+                Корж:
+            <% for (var t=0;t<ar.korz.length;t++){%>
+                  <%=ar.korz[t]%> <%=ar.sumKorz[t]%>
+              <%}%>
+              Крем:
+                <% for (var i=0;i<ar.krem.length;i++){%>
+                      <%=ar.krem[i]%> <%=ar.sumKrem[i]%>
+                  <%}%>
+
+
+
+
+
+
+
+
+
+                  <form class="" action="/ChangeCostsChock" method="post">
+                <!-- КОСТЫЛЬ НУЖНЫЙ! -->
+                <input type="text" name="work" value="<%=names%>" style="display:none">
+                <% if (ar.basischock_id!=''){%><input type="text" name="idTort1" value="<%=ar.basischock_id%>" style="display:none"><%}%>
+                <% if (ar.fillchock_id!=''){%><input type="text" name="idTort2" value="<%=ar.fillchock_id%>" style="display:none"><%}%>
+                <% if (ar.kremchock_id!=''){%><input type="text" name="idTort3" value="<%=ar.kremchock_id%>" style="display:none"><%}%>
+                <tr>
+                <td> Разновидность:<% if (ar[0].namekind!=''){%> <%=ar[0].namekind%> <% }if (ar.sumbasis!=''){%> <input type="text" name="example1" value="<%=ar.sumbasis%>" class="sumtable"> RUB <%}%>
+
+
+                Начинка:<% if (ar.namefill!=''){%> <%=ar.namefill%> <%} if (ar.sumfill!=''){%><input type="text" name="example1" value="<%=ar.sumfill%>" class="sumtable"> RUB <%}%>
+
+                Крем:<% if (ar.namebasis!=''){%> <%=ar.namebasis%>  <%} if (ar.summkrem!=''){%> <input type="text" name="example1" value="<%=ar.summkrem%>" class="sumtable"> RUB <%}%>
+
+
+                  <p>
+                    <button class="bt" type="submit">Применить</button>
+                </td>
+                </tr>
+                </form>
+                ____________________________________________
+
+                <%
+                for(var i=0;i<workChock.length;i++){
+                 %>
+
+                  <form class="" action="/ChangeCostsChock" method="post">
+                <!-- КОСТЫЛЬ НУЖНЫЙ! -->
+                <input type="text" name="work" value="<%=names%>" style="display:none">
+                <% if (workChock[0][i].basischock_id!=''){%><input type="text" name="idTort1" value="<%=workChock[0][i].basischock_id%>" style="display:none"><%}%>
+                <% if (workChock[0][i].fillchock_id!=''){%><input type="text" name="idTort2" value="<%=workChock[0][i].fillchock_id%>" style="display:none"><%}%>
+                <% if (workChock[0][i].kremchock_id!=''){%><input type="text" name="idTort3" value="<%=workChock[0][i].kremchock_id%>" style="display:none"><%}%>
+                <tr>
+                <td> Разновидность:<% if (workChock[0][i].namekind!=''){%> <%=workChock[0][i].namekind%> <% }if (workChock[0][i].sumbasis!=''){%> <input type="text" name="example1" value="<%=workChock[0][i].sumbasis%>" class="sumtable"> RUB <%}%>
+
+
+                Начинка:<% if (workChock[0][i].namefill!=''){%> <%=workChock[0][i].namefill%> <%} if (workChock[0][i].sumfill!=''){%><input type="text" name="example1" value="<%=workChock[0][i].sumfill%>" class="sumtable"> RUB <%}%>
+
+                Крем:<% if (workChock[0][i].namebasis!=''){%> <%=workChock[0][i].namebasis%>  <%} if (workChock[0][i].summkrem!=''){%> <input type="text" name="example1" value="<%=workChock[0][i].summkrem%>" class="sumtable"> RUB <%}%>
+
+
+                  <p>
+                    <button class="bt" type="submit">Применить</button>
+                </td>
+                </tr>
+                </form>
+                  <%
+                }
+                %>

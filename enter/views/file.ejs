@@ -1,0 +1,483 @@
+<html>
+<head>
+<title><%=title%></title>
+<meta charset="utf-8" />
+<link href="/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="header" id="headerr">
+
+        <h1><a href="/">  Make Cake </h1></a>
+        <%  if (!flag) {%>
+            <a href="/enterClient" class="exit1"></a>
+        <%} else { %> <a href="/user?id=zakazy" class="bag"></a>  <a href="/enterClient" class="exit2"></a>
+       <%}%>
+        
+        <div class=menu>
+        <ul>
+            <li><a href="/user?id=torty">Торты</a></li>
+            <li><a href="/user?id=minic">Капкейки</a></li>
+            <li><a href="/user?id=sweet">Шоколадные изделия</a></li>
+    
+            <li><a href="/user?id=marshmallows">Зефир</a></li>
+            <li><a href="/user?id=classic">Классичекие десерты</a></li>
+            
+            </ul>
+           
+    
+    
+    
+        </div>
+    </div>
+<div class=kart>
+
+</div>
+<% if (title == "Главная") {%>
+<div class=assortTortt>
+
+
+    <div class=pict1>
+
+    </div>
+    <div class=pict2>
+
+    </div>
+
+    <div class=pict3>
+
+    </div>
+
+    <div class="text">
+        <h2>About</h2>
+       <div class="about">
+        Приложение заказа кондитерских изделий.
+        <div class=abouttext>        Собери десерт сам.....</div>
+       </div>
+    </div>
+
+</div>
+<%} else if (title=="Торты") {%>
+        <div class=" assortTort">
+            <form method="post" action="/chooseCake" novalidate>
+
+            <div id="tes">Торты</div>
+            <div class="bisq">
+                        <div id="tes1">Коржи</div><br>
+
+                           <% korz.forEach(function(ar){%>
+                            <label>
+
+                                  <input type="checkbox" id="qwe" name="korz"  value="<%=ar.name%>">  <%=ar.name%>
+
+                            </label>
+                            <%}) %>
+
+                        </div>
+                        <div class="nach">
+                            <div id="tes1">Начинка</div><br>
+                            <% nach.forEach(function(ar){%>
+                                <label>
+                                    <input type="checkbox" id="qwe" name="nach"  value="<%=ar.namefill%>"> <%=ar.namefill%>
+                                </label>
+                                <%}) %>
+                        </div>
+                            <div class="krem">
+                                <div id="tes1">Крем</div><br>
+                                 <% krem.forEach(function(ar){%>
+                                <label>
+                                    <input type="checkbox" id="qwe" name="krem"  value="<%=ar.namekrem%>"> <%=ar.namekrem%>
+                                </label>
+                                <%}) %>
+                            </div>
+                            <div class="date">
+                                <p>Выберите дату:
+                                    <input type="date" class="form-control" id="date" name="date" placeholder="Дата" required> </p>
+
+                                </div>
+                              
+                                <div class="cities">
+                                    Выберите город:
+                                       <select class="city" name="city">
+                                           <option name="" value="0" selected>Выбрать город</option>
+                                           <%city.forEach(function(ar){%>
+                                               <option value="<%=ar.city%>"><%=ar.city%></option>
+                                           <%})%>
+                                           <option value="Другое">Другое</option>
+
+
+                                           </select>
+
+
+
+
+                            </div>
+
+                            <div class="poisk">
+                                <input type="submit" value="Поиск кондитера">
+                            </div>
+                 </form>
+            </div>
+
+    <%}
+
+    else if (title=="Капкейки") {%>
+        <div class=" assortTort">
+            <form method="post" action="/chooseCup" novalidate>
+
+            <div id="tes">Капкейки</div>
+            <div class="bisq">
+            <div id="tes1">Коржи</div><br>
+                <% korzCup.forEach(function(ar){%>
+                <label>
+                    <input type="checkbox" id="qwe" name="korz"  value="<%=ar.name%>"> <%=ar.name%>
+                </label>
+                <%}) %>
+
+            </div>
+            <div class="nachCup">
+                <div id="tes1">Начинка</div><br>
+                <% nachCup.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="nach"  value="<%=ar.namefill%>"> <%=ar.namefill%>
+                    </label>
+                    <%}) %>
+            </div>
+            <div class="kremCup">
+                <div id="tes1">Крем</div><br>
+                <% kremCup.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="krem"  value="<%=ar.namekrem%>"> <%=ar.namekrem%>
+                    </label>
+                    <%}) %>
+
+            </div>
+        <div class="dateCup">
+            <p>Выберите дату:
+<input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
+                </p>
+
+
+
+        </div>
+                               <div class="cities">
+                                    Выберите город:
+                                       <select class="city" name="city">
+                                           <option name=""  value="0" selected>Выбрать город</option>
+                                           <%city.forEach(function(ar){%>
+                                               <option value="<%=ar.city%>"><%=ar.city%></option>
+                                           <%})%>
+                                           <option value="Другое">Другое</option>
+
+
+                                           </select>
+
+
+
+
+                            </div>
+
+                <div class="poisk">
+                    <input type="submit" value="Поиск кондитера">
+                </div>
+                    </form>
+        </div>
+    <%}
+
+    else if (title=="Шоколадные изделия") {%>
+        <div class=" assortTort">
+            <form method="post" action="/chooseChock" novalidate>
+
+            <div id="tes">Шоколадные изделия</div>
+            <div class="bisq">
+            <div id="tes1">Разновидность </div><br>
+            <% korzChock.forEach(function(ar){%>
+                <label>
+                    <input type="checkbox" id="qwe" name="korz"  value="<%=ar.namekind%>"> <%=ar.namekind%>
+                </label>
+                <%}) %>
+
+            </div>
+
+            <div class="kindChock">
+                <div id="tes1">Шоколад</div><br>
+                <% kremChock.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="krem"  value="<%=ar.namebasis%>"> <%=ar.namebasis%>
+                    </label>
+                    <%}) %>
+
+            </div>
+            <div class="nachChock">
+                <div id="tes1">Начинка</div><br>
+                <% nachChock.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="nach"  value="<%=ar.namefill%>"> <%=ar.namefill%>
+                    </label>
+                    <%}) %>
+            </div>
+
+
+
+                <div class="dateCup">
+                    <p>Выберите дату:
+<input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
+                        </p>
+
+
+                </div>
+                             <div class="cities">
+                                    Выберите город:
+                                       <select class="city" name="city">
+                                           <option name=""  value="0" selected>Выбрать город</option>
+                                           <%city.forEach(function(ar){%>
+                                               <option value="<%=ar.city%>"><%=ar.city%></option>
+                                           <%})%>
+                                           <option value="Другое">Другое</option>
+
+
+                                           </select>
+
+
+
+
+                            </div>
+
+                    <div class="poisk">
+                        <input type="submit" value="Поиск кондитера">
+                    </div>
+            </form>
+        </div>
+    <%}
+
+    else if (title=="Зефир") {%>
+        <div class=" assortTort">
+            <form method="post" action="/chooseMarsh" novalidate>
+
+            <div class="bisq1">
+                <div id="tes1">Вкус</div><br>
+                <% marsh.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="korz"  value="<%=ar.name%>"> <%=ar.name%>
+                    </label>
+                    <%}) %>
+
+              </div>
+              <div class="dateCup">
+                    <p>Выберите дату:
+<input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
+
+
+                </div>
+                <div class="cities">
+                                    Выберите город:
+                                       <select class="city" name="city">
+                                           <option name=""  value="0" selected>Выбрать город</option>
+                                           <%city.forEach(function(ar){%>
+                                               <option value="<%=ar.city%>"><%=ar.city%></option>
+                                           <%})%>
+                                           <option value="Другое">Другое</option>
+
+
+                                           </select>
+
+
+
+
+                            </div>
+
+                    <div class="poisk">
+                        <input type="submit" value="Поиск кондитера">
+                    </div>
+          </form>
+        </div>
+    <%}
+
+    else if (title=="Классические десерты") {%>
+        <div class=" assortTort">
+            <form method="post" action="/chooseReady" novalidate>
+
+            <div class="bisq1">
+                <div id="tes1">Вкус</div><br>
+                <% ready.forEach(function(ar){%>
+                    <label>
+                        <input type="checkbox" id="qwe" name="korz"  value="<%=ar.name%>"> <%=ar.name%>
+                    </label>
+                    <%}) %>
+
+              </div>
+              <div class="dateCup">
+                    <p>Выберите дату:
+<input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
+                        </p>
+
+
+                </div>
+                <div class="cities">
+                                    Выберите город:
+                                       <select class="city" name="city">
+                                           <option name=""  value="0" selected>Выбрать город</option>
+                                           <%city.forEach(function(ar){%>
+                                               <option value="<%=ar.city%>"><%=ar.city%></option>
+                                           <%})%>
+                                           <option value="Другое">Другое</option>
+
+
+                                           </select>
+
+
+
+
+                            </div>
+
+                    <div class="poisk">
+                        <input type="submit" value="Поиск кондитера">
+                    </div>
+          </form>
+        </div>
+    <%}
+
+    else if (title=="Поиск кондитера") {%>
+        <div class=" assortTort">
+          <div id="tes1">Список кондитеров</div><br>
+
+          <%
+          countWorkerKorz.forEach(function(ar){
+
+            %>
+            <form method="post" action="/makeOrderZl" novalidate>
+<p>
+
+          <%=ar.firstname%>   <%=ar.name%>
+          Стоимость: <%=ar.sum%>/kg
+                      <%if (flag){%>
+                    <div class="makeOrder">
+                    <button type="submit" name="example1" value="<%=ar.id%>">Заказать </button>
+                </div>
+                <p>>
+                  <%}  })%>
+                </div>
+
+            </form>
+
+        </div>
+    <%} if(title=="Подтверждение"){%>
+        <form  action="/order" method="post">
+          <div class="order">
+            <%
+            countWorkerKorz.forEach(function(ar){
+              if(worker==ar.id){%>
+                <div id="tes">Формирование заказа</div>
+                <div class="formirovanie">
+                  <p> Наименование кондитерскогоо изделия: <input type="text" name="namesweet" value="<%=ar.namesweet%>" readonly>
+                    <input type="text" name="id" value="<%=ar.id%>" style="display:none">
+              <p>  Имя исполнителя: <input type="text" name="nameWorker" value="<%=ar.name%>" readonly>
+                <p> Фамилия исполнителя: <input type="text" name="firstnameWorker" value="<%=ar.firstname%>" readonly>
+                <p>Дата исполнения: <input type="text" name="date" value="<%=ar.date%>" readonly>
+
+                        <% for (var j=0;j<ar.nach.length;j++){%>
+                            <input type="text" name="nach" value="<%=ar.nach[j]%>" readonly  style="display:none">
+                          <%}%>
+
+                            <% for (var t=0;t<ar.korz.length;t++){%>
+                                  <input type="text" name="korz" value="<%=ar.korz[t]%>" readonly style="display:none">
+                              <%}%>
+                                <% for (var i=0;i<ar.krem.length;i++){%>
+                                    <input type="text" name="krem" value="<%=ar.krem[i]%>" readonly style="display:none">
+                                  <%}%>
+
+                                <p>    Кол-во кг:  <button type="button" onclick="ChangeBack()">- </button> <input type="text" id="countKg" name="count" value="1" style="width:40px"> <button type="button" onclick="ChangeNext()">+ </button>
+                                  <%  userInfo.forEach(function(r){%>
+                                    <p>Имя заказчика: <input type="text" id="nameclient" name="nameUser" value="<%=r.name%>">
+                                        <p> Фамилия заказчика: <input type="text" id="nameclient" name="firstUser" value="<%=r.firstname%>">
+                                            <p>  Номер телефона: <input type="text" id="nameclient" name="number" value="<%=r.numberphone%>">
+                                                <p> E-mail: <input type="text" id="nameclient" name="email" value="<%=r.email%>">
+                                                  <p> Адрес доставки: <input type="text" id="vvodadress"name="adress" placeholder="адрес доставки">
+                                    <%})%>
+
+                                    <p>Сумма заказа: <input type="text" id="sumorder" name="sum" value="<%=ar.sum%>" readonly>
+                                        </div>
+                                      <script type="text/javascript">
+                                        function ChangeBack() {
+                                          var count = document.getElementById('countKg').value;
+                                          var newcount=Number(count);
+                                            newcount = count-1;
+                                          document.getElementById('countKg').value = newcount;
+                                          var lastsum = Number(<%=ar.sum%>);
+                                          var sum = lastsum;
+                                          sum= lastsum*newcount;
+                                          document.getElementById('sumorder').value = sum;
+                                          if (count<=0) {
+                                              document.getElementById('countKg').value = 1;
+                                              document.getElementById('sumorder').value = lastsum;
+                                          }
+
+                                        }
+                                        function ChangeNext() {
+                                          var count = document.getElementById('countKg').value;
+                                          var newcount=Number(count);
+                                            newcount +=1;
+                                          document.getElementById('countKg').value = newcount;
+                                          var lastsum = Number(<%=ar.sum%>);
+                                          var sum = lastsum;
+                                          sum= lastsum*newcount;
+                                          document.getElementById('sumorder').value = sum;
+                                        }
+                                      </script>
+<%}
+})%>
+              <div class="togetOrder">
+              <button type="submit">Оформить </button>
+          </div>
+
+          </div>
+        </form>
+      <%} if (title=="Заказы"){%>
+        <div id="tes"> Заказы </div>
+     <div class=ordercss>
+       <% for(var i=0;i<orderInfo.length;i++) { %>
+       <p> Исполнитель: <%=orderInfo[i].name%> <%=orderInfo[i].firstname%>
+             <p> Номер телефона: <%=orderInfo[i].numberphone%>
+       <p>  Дата: <%=orderInfo[i].data%>
+         <p>  Наименование <%=orderInfo[i].namesweet%>
+       <p>  Содержимое заказа:  <%=orderInfo[i].ordertxt%>
+       <p>  Сумма заказа: <%=orderInfo[i].sum%>
+         <p>  Адрес доставки: <%=orderInfo[i].adress%>
+ <p>  Выполнено: <% if(orderInfo[i].done){%>V<%} else {%>
+     
+     <form  action="/cancel" method="post">
+ <button  type="submit" name="cancel" value="<%=orderInfo[i].id%>">
+     Отмена заказа
+ </button><%}%>
+ </form>
+ </div>
+     <hr>
+         <%}%>
+ 
+ 
+ 
+         <%}%>
+ 
+ <div class="foo">
+ 
+ </div>
+ <script>
+    document.addEventListener('DOMContentLoaded', function(){
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    var name_input = document.getElementById('date');
+    if (day<=9) {
+    name_input.min =""+year+ "-" + (("0" + month).slice(-2)) + "-" +"0"+(day) +"";
+    name_input.value = ""+year+ "-" + (("0" + month).slice(-2)) + "-" +"0"+(day) +"";
+    
+    } else {
+    name_input.min = ""+year+ "-" + (("0" + month).slice(-2)) + "-" +(day) +"";
+    name_input.value = ""+year+ "-" + (("0" + month).slice(-2)) + "-" +(day) +"";
+    
+    }
+    
+    });
+    </script>
+</body>
+<html>
